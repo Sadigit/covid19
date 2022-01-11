@@ -1,0 +1,101 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<title></title>
+ 	<style type="text/css">
+ 		*{
+ 			margin: 0;
+ 			padding: 0;
+ 		}
+ 		body{
+ 			text-align: center;
+ 			background: linear-gradient(to left,blue,violet,skyblue,magenta);
+ 			
+ 		}
+ 		.all{
+ 			border: 1px solid transparent;
+ 			border-radius: 8px;
+ 			box-shadow: 0 10px 0 rgba(0,0,0,0.04),10px 0 0 rgba(0, 0, 0, 0.07);
+ 			width: 80%;
+ 			margin-left: 10%;
+ 			text-align: center;
+ 			height: 100%;
+ 		}
+ 		#name{
+ 			background: tomato;
+ 			margin: auto;
+ 			color: white;
+
+ 		}
+ 		.info{
+ 			padding-right: 10px;
+
+ 			background: orange;
+ 			padding-top: 19px;
+ 			padding-bottom: 19px;
+ 			font-family: monospace;
+ 			color: white;
+ 			font-size: 28px;
+ 		}
+ 		#dead{
+ 			background: tomato;
+ 			color: white;
+
+
+ 		}
+ 		#tdead{
+ 			background: tomato;
+ 			color: white;
+ 			margin-bottom: 22px;
+ 		}
+ 		#conformes{
+ 			background: tomato;
+ 			color: white;
+ 			
+ 		}
+ 		.content{
+ 			color: white;
+ 			background: violet;
+ 			border: 1px solid transparent;
+ 			border-radius: 11px;
+ 		}
+ 		
+ 		
+ 	</style>
+ </head>
+ 	<h1 style="background: linear-gradient(to left,blue,violet,skyblue,magenta);" class="content">Covid 19 live Update</h1>
+
+ <div class="all">
+
+</div>
+ <body>
+ 
+ <script type="text/javascript">
+	fetch('https://api.covid19api.com/summary').then( (apidata)=>{
+
+		return apidata.json();
+	}).then( (actualdata)=>{
+		
+		 const list = actualdata.Countries;
+		 list.map((items)=>{
+		 	const name = items.Country;
+		 	const totalcon=items.TotalConfirmed
+		 	const totaldead=items.TotalDeaths;
+		 	const newcon = items.NewConfirmed;
+		 	const newdead = items.NewDeaths;
+		 	const newre = items.NewRecovered;
+		 	const main ='	<div id="names"><h1 id="name">'+name+'</h1></div><div id="conf"><h2 class="info">New Conformed </h2><h1 id="conformes">'+newcon+'</h1></div><div id="deadth"><h2 class="info">New deaths</h2><h1 id="dead">'+newdead+'</h1></div><h2 class="info">Total Conformed </h2><h1 id="conformes">'+totalcon+'</h1></div><div id="deadth"><h2 class="info">New deaths</h2><h1 id="tdead">'+totaldead+'</h1></div>'
+
+		 	document.querySelector('.all').innerHTML += main;
+		 })
+		
+	}).catch( (error)=>{
+		console.log("error");
+	})
+
+ </script>
+ </body>
+
+ </html>
