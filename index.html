@@ -11,7 +11,10 @@
  		}
  		body{
  			text-align: center;
- 			background: linear-gradient(to left,blue,violet,skyblue,magenta);
+ 			background: linear-gradient(to top,blue,violet,skyblue,magenta,green,purple);
+ 			background-size: cover;
+ 			background-repeat: no-repeat;
+ 			background-position: center;
  			
  		}
  		.all{
@@ -24,6 +27,9 @@
  			height: 100%;
  		}
  		#name{
+ 			border: 0.1px solid tomato;
+ 			border-top-right-radius: 27px;
+ 			border-top-left-radius: 27px;
  			background: tomato;
  			margin: auto;
  			color: white;
@@ -46,6 +52,8 @@
 
  		}
  		#tdead{
+ 			border-bottom-right-radius: 27px;
+ 			border-bottom-left-radius: 27px;
  			background: tomato;
  			color: white;
  			margin-bottom: 22px;
@@ -62,7 +70,7 @@
  			border-radius: 11px;
  		}
  		
- 		
+
  	</style>
  </head>
  	<h1 style="background: linear-gradient(to left,blue,violet,skyblue,magenta);" class="content">Covid 19 live Update</h1>
@@ -70,6 +78,7 @@
  <div class="all">
 
 </div>
+
  <body>
  
  <script type="text/javascript">
@@ -86,7 +95,7 @@
 		 	const newcon = items.NewConfirmed;
 		 	const newdead = items.NewDeaths;
 		 	const newre = items.NewRecovered;
-		 	const main ='	<div id="names"><h1 id="name">'+name+'</h1></div><div id="conf"><h2 class="info">New Conformed </h2><h1 id="conformes">'+newcon+'</h1></div><div id="deadth"><h2 class="info">New deaths</h2><h1 id="dead">'+newdead+'</h1></div><h2 class="info">Total Conformed </h2><h1 id="conformes">'+totalcon+'</h1></div><div id="deadth"><h2 class="info">Total deaths</h2><h1 id="tdead">'+totaldead+'</h1></div>'
+		 	const main ='	<div id="curv"><div id="names"><h1 id="name">'+name+'</h1></div><div id="conf"><h2 class="info">New Conformed </h2><h1 id="conformes">'+newcon+'</h1></div><div id="deadth"><h2 class="info">New deaths</h2><h1 id="dead">'+newdead+'</h1></div><h2 class="info">Total Conformed </h2><h1 id="conformes">'+totalcon+'</h1></div><div id="deadth"><h2 class="info">New deaths</h2><h1 id="tdead">'+totaldead+'</h1></div><div>'
 
 		 	document.querySelector('.all').innerHTML += main;
 		 })
